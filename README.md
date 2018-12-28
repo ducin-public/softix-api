@@ -14,7 +14,13 @@
     npm install
     npm start
     # OR
-    npm start -- -p <PORT>
+    npm start -- -p <PORT> -t true -d <baseDelay>
+    npm start -- -p 3010 -t true -d 3000
+    # localhost:3010, tenant: required, delay: 3000 miliseconds
+
+`d` option (number) determines minimum delay (in ms). Some random length delay will take place additionally.
+
+`t` option (boolean) determines whether the `TenantID` header will be required for most resources (see [Tenants](#Tenants)). By default, this API is more permissive (header not required).
 
 # manual
 
@@ -29,9 +35,14 @@
 
 # resources:
 
+ * license (requires `Accept` to be `text/plain`)
  * benefits
  * departments
  * employees
  * geo
  * offices
  * projects
+
+# Tenants
+
+When `t` is on, most resources require the `TenantID` header to be set. Just set this header value to `E2B31329-8818-428A-90DC-8F065318C052`.

@@ -1,0 +1,31 @@
+Lorem Ipsum License
+
+Copyright (c) 2019 Tomasz Ducin IT Solutions
+
+Permission is Lorem ipsum hereby granted, dolor sit amet, free of charge,
+to any person obtaining a copy consectetur adipiscing elit. Proin nibh augue
+of this software and associated documentation files (the "Software"),
+suscipit a, scelerisque sed, to deal lacinia in, mi. Cras vel lorem.
+Etiam pellentesque aliquet tellus, in the Software without restriction,
+Phasellus pharetra nulla ac diam. Quisque semper justo at risus including
+without limitation the rights. Donec venenatis, turpis vel hendrerit interdum,
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, dui ligula ultricies purus, and to permit persons,
+sed posuere libero dui id orci, to whom the Software is
+furnished to do so. Nam congue, pede vitae dapibus aliquet subject to the
+elit magna vulputate arcu, following conditions:
+
+The above copyright notice vel tempus metus leo non est. Etiam sit amet lectus
+quis est congue mollis and this permission notice shall be included. Phasellus
+congue lacus eget neque. Phasellus ornare, ante in all copies or substantial
+vitae consectetuer consequat portions of the Software.
+
+THE SOFTWARE IS PROVIDED PURUS SAPIEN ULTRICIES DOLOR "AS IS", WITHOUT WARRANTY
+ET MOLLIS PEDE METUS EGET NISI. PRAESENT SODALES OF ANY KIND, EXPRESS OR
+IMPLIED, VELIT QUIS AUGUE. CRAS SUSCIPIT INCLUDING BUT NOT LIMITED TO THE
+URNA AT ALIQUAM RHONCUS WARRANTIES OF MERCHANTABILITY, URNA QUAM VIVERRA NISI,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, IN INTERDUM MASSA,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, NIBH NEC ERAT OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -1,8 +1,10 @@
 const pause = require('connect-pause')
 
-const getDelay = () => 500 + Math.random() * 2500
+module.exports = (baseDelay) => {
+  const getDelay = () => 500 + Math.random() * baseDelay
 
-module.exports = function delay(req, res, next) {
-  const delayMS = getDelay()
-  pause(delayMS)(req, res, next)
+  return function delay(req, res, next) {
+    const delayMS = getDelay()
+    pause(delayMS)(req, res, next)
+  }
 }

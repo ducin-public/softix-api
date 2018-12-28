@@ -1,13 +1,34 @@
-const PORT = 3030
-
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 const express = require('express')
 
-const paging = require('./mw/paging')
-const delaying = require('./mw/delaying')
+const licenseResource = require('./resources/license')
+const tenantMiddleware = require('./mw/tenant')
+const pagingMiddleware = require('./mw/paging')
+const delayingMiddleware = require('./mw/delaying')
+
+const argv = require('yargs')
+  .option('t', {
+    alias: 'tenantRequired',
+    default: false,
+    describe: 'TenantID header is required',
+    type: 'boolean'
+  })
+  .option('p', {
+    alias: 'port',
+    default: 3000,
+    describe: 'Service port',
+    type: 'number'
+  })
+  .option('d', {
+    alias: 'delay',
+    default: 1000,
+    describe: 'Minimum delay (+ random)',
+    type: 'number'
+  })
+  .argv;
 
 const baseUrl = url => url.split('?')[0]
 const isCountRequest = (req) =>
@@ -27,17 +48,24 @@ router.render = (req, res) => {
 }
 
 server.use(jsonServer.rewriter({
+  "/finances/expenses*": "/expenses$1",
+
   '/:resource/:id/count': '/:resource/:id',
   '/:resource/count?:query': '/:resource?:query',
   '/:resource/count': '/:resource',
 }))
 
 server.use('/images', express.static('images'))
-
 server.use(middlewares)
-server.use(paging)
-server.use(delaying)
+server.use(delayingMiddleware(argv.d))
+server.get('/license', licenseResource)
+if (argv.t) {
+  console.log('TenantID header required for most resources')
+  server.use(tenantMiddleware)
+}
+server.use(pagingMiddleware)
 server.use(router)
-server.listen(PORT, () => {
-  console.log('JSON Server is running on http://localhost:' + PORT)
+
+server.listen(argv.p, () => {
+  console.log('JSON Server is running on http://localhost:' + argv.p)
 })
