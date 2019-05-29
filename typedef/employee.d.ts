@@ -32,4 +32,5 @@ export type Employee = {
   },
   "skills": Skill[];
   "bio": string;
+  "imgURL": string;
 };

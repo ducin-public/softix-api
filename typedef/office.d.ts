@@ -9,4 +9,5 @@ export type Office = {
     "phone": Phone;
     "monthlyRental": number;
   };
+  "imgURL": string;
 };
