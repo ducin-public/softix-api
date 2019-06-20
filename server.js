@@ -8,25 +8,37 @@ const licenseResource = require('./resources/license')
 const tenantMiddleware = require('./mw/tenant')
 const pagingMiddleware = require('./mw/paging')
 const delayingMiddleware = require('./mw/delaying')
+const failingMiddleware = require('./mw/failing')
 
 const argv = require('yargs')
-  .option('t', {
-    alias: 'tenantRequired',
-    default: false,
-    describe: 'TenantID header is required',
-    type: 'boolean'
-  })
-  .option('p', {
-    alias: 'port',
+  .option('port', {
+    alias: 'p',
     default: 3000,
     describe: 'Service port',
     type: 'number'
   })
-  .option('d', {
-    alias: 'delay',
+  .option('delay', {
+    alias: 'd',
     default: 1000,
     describe: 'Minimum delay (+ random)',
     type: 'number'
+  })
+  .option('fail', {
+    alias: 'f',
+    default: 0,
+    describe: 'Probability of requests to randomly fail (0..1)',
+    type: 'number'
+  })
+  .option('failUrls', {
+    default: null,
+    describe: 'Comma-separated list of pattern-matched urls to randomly fail',
+    type: 'string'
+  })
+  .option('tenantRequired', {
+    alias: 't',
+    default: false,
+    describe: 'TenantID header is required',
+    type: 'boolean'
   })
   .argv;
 
@@ -57,15 +69,19 @@ server.use(jsonServer.rewriter({
 
 server.use('/images', express.static('images'))
 server.use(middlewares)
-server.use(delayingMiddleware(argv.d))
-server.get('/license', licenseResource)
-if (argv.t) {
-  console.log('TenantID header required for most resources')
-  server.use(tenantMiddleware)
-}
-server.use(pagingMiddleware)
+server.use(delayingMiddleware(argv.delay))
+server.get('/license', licenseResource())
+server.use(tenantMiddleware(argv.tenantRequired))
+server.use(pagingMiddleware(50))
+server.use(failingMiddleware(argv.fail, argv.failUrls))
 server.use(router)
 
-server.listen(argv.p, () => {
+server.use(function (err, req, res, next) {
+  // console.error(err); // full error message
+  console.error(`error "${err.message}" occured for ${req.method} ${req.originalUrl}`); // request URL only
+  res.sendFile(__dirname + '/images/error/error.html');
+})
+
+server.listen(argv.port, () => {
   console.log('JSON Server is running on http://localhost:' + argv.p)
 })

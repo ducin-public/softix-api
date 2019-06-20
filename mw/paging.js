@@ -1,8 +1,12 @@
-const MAX_PAGE_SIZE = 50
+module.exports = (maxPageSize) => {
+  setTimeout(() => {
+    console.log(`Max pagesize is ${maxPageSize}`)
+  }, 0)
 
-module.exports = (req, res, next) => {
-  if (!req.query._limit || parseInt(req.query._limit) > MAX_PAGE_SIZE) {
-    req.query._limit = MAX_PAGE_SIZE
+  return (req, res, next) => {
+    if (!req.query._limit || parseInt(req.query._limit) > maxPageSize) {
+      req.query._limit = maxPageSize
+    }
+    next()
   }
-  next()
 }

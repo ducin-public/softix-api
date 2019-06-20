@@ -18,9 +18,17 @@
     npm start -- -p 3010 -t true -d 3000
     # localhost:3010, tenant: required, delay: 3000 miliseconds
 
-`d` option (number) determines minimum delay (in ms). Some random length delay will take place additionally.
+## CLI options
 
-`t` option (boolean) determines whether the `TenantID` header will be required for most resources (see [Tenants](#Tenants)). By default, this API is more permissive (header not required).
+- `p` / `port` (*number*) - well... the port
+
+- `d` / `delay` (*number*, milliseconds) - determines minimum delay. Some random length delay will take place additionally.
+
+- `f` / `fail` (*number from range 0..1*) - probability of random fails on processing requests. Useful for testing error handling, optimistic updates, etc. Defaults to `0` (no random fails). If `fu` not set, all requests are considered to randomly fail.
+
+- `failUrls` - (*comma-separated string*, list of URL patterns) - if `f` option is on, the requests that match any of the URL pattern in this list might potentially fail. Useful when you want to choose certain resources to be unstable temporarily. Example: `-fu employees,offices` - `employees*` and `offices*` are unstable, rest is stable
+
+- `t` / `tenantRequired` (*boolean*) - determines whether the `TenantID` header will be required for most resources (see [Tenants](#Tenants)). By default, this API is more permissive (header not required).
 
 # manual
 
