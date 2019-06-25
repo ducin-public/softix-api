@@ -1,5 +1,15 @@
 {
   "license": {},
+  "history": [{
+    "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
+    "type": "type",
+    "value": "value"
+  }],
+  "analytics": [{
+    "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
+    "request": "api.com/resource",
+    "time": 1569
+  }],
   "benefits": [
     {
       "id": "4c4863a716314d40",
@@ -64892,11 +64902,6 @@
     "IT": "Italy",
     "ES": "Spain"
   },
-  "history": [{
-    "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
-    "type": "type",
-    "value": "value"
-  }],
   "offices": [
     {
       "country": "Italy",
