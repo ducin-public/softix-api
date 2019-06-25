@@ -10,6 +10,158 @@
     "request": "api.com/resource",
     "time": 1569
   }],
+  "todos": [
+    {
+      "id": "a41d05d1-9c42-4772-948d-5c9472ad5a73",
+      "title": "Networked methodical function Shoes",
+      "completed": true
+    },
+    {
+      "id": "0c734274-3e17-44f7-ac70-fab461b55d03",
+      "title": "Progressive client-server moratorium Car",
+      "completed": true
+    },
+    {
+      "id": "ac518c53-d65f-422d-8dc2-550ea6719870",
+      "title": "Re-engineered logistical leverage Towels",
+      "completed": false
+    },
+    {
+      "id": "2d26ee95-d9db-4257-aa30-7d499effa792",
+      "title": "Multi-channelled discrete budgetary management Bike",
+      "completed": false
+    },
+    {
+      "id": "58990027-a6b1-44e2-bed9-218b9914efde",
+      "title": "Seamless homogeneous functionalities Car",
+      "completed": false
+    },
+    {
+      "id": "24521e81-0939-4cbd-8979-d6732a21f391",
+      "title": "Mandatory modular capacity Mouse",
+      "completed": true
+    },
+    {
+      "id": "5efaa5d5-d9b4-47ef-9609-11e9501fdaae",
+      "title": "Visionary optimal system engine Hat",
+      "completed": false
+    },
+    {
+      "id": "04f2c67b-a7a2-4298-b5d6-573b3ab6f035",
+      "title": "Reactive 6th generation collaboration Pizza",
+      "completed": false
+    },
+    {
+      "id": "4887f249-d315-48ac-8e42-aa410987f2fb",
+      "title": "Self-enabling exuding complexity Salad",
+      "completed": true
+    },
+    {
+      "id": "85bb69e0-68c9-48a5-8e7e-c72424ff3caa",
+      "title": "Centralized holistic implementation Chair",
+      "completed": true
+    },
+    {
+      "id": "dbee5f3e-0478-42fb-a17e-6ef62ef029c7",
+      "title": "Team-oriented incremental analyzer Pizza",
+      "completed": true
+    },
+    {
+      "id": "62191dab-f42c-48b4-99c8-9865436db75b",
+      "title": "Cross-group 24 hour definition Salad",
+      "completed": true
+    },
+    {
+      "id": "232b5262-eb52-46f0-a458-29b167cba321",
+      "title": "Mandatory background productivity Pizza",
+      "completed": true
+    },
+    {
+      "id": "b9b562a8-0216-4695-a22e-86c8d4baac9e",
+      "title": "Up-sized intermediate moderator Shirt",
+      "completed": false
+    },
+    {
+      "id": "0bcd0da3-d679-4fc7-8f12-c3e70308b0a0",
+      "title": "Inverse eco-centric complexity Bike",
+      "completed": false
+    },
+    {
+      "id": "baa57736-6f69-4df2-94b6-233852ee488e",
+      "title": "Up-sized context-sensitive archive Cheese",
+      "completed": true
+    },
+    {
+      "id": "ca5adcd8-3c7e-4c3f-aa4e-32dd1c7db30d",
+      "title": "User-centric attitude-oriented open system Fish",
+      "completed": true
+    },
+    {
+      "id": "5e4acce2-c955-4d7b-8a01-e070ec155285",
+      "title": "Enterprise-wide systematic application Chips",
+      "completed": true
+    },
+    {
+      "id": "9739cc14-9918-4144-89fd-dcbef6df8b9a",
+      "title": "Switchable non-volatile synergy Computer",
+      "completed": true
+    },
+    {
+      "id": "19b88d64-37a4-4a4d-8608-ab689cc7fb37",
+      "title": "Automated zero defect collaboration Car",
+      "completed": true
+    },
+    {
+      "id": "018efd2c-09ce-4eed-aa08-5515e34a2fe1",
+      "title": "Up-sized bottom-line model Cheese",
+      "completed": true
+    },
+    {
+      "id": "3185222c-0e34-479d-9c61-1eccb7480ce2",
+      "title": "Polarised tertiary data-warehouse Keyboard",
+      "completed": true
+    },
+    {
+      "id": "a1baa507-507b-4737-afc7-7e7c54c0b9f5",
+      "title": "Open-source modular task-force Mouse",
+      "completed": false
+    },
+    {
+      "id": "6266c2a0-b7d7-4ded-9b0e-165768325f16",
+      "title": "Re-engineered bi-directional collaboration Bike",
+      "completed": false
+    },
+    {
+      "id": "530353de-3cd3-4821-a395-24f401b638f3",
+      "title": "Centralized even-keeled adapter Table",
+      "completed": true
+    },
+    {
+      "id": "1ba723c3-a8d5-46db-b291-227e6eaf36b7",
+      "title": "Open-architected value-added paradigm Tuna",
+      "completed": false
+    },
+    {
+      "id": "23c8ca32-e940-44a8-b5b4-d3a1d997fb88",
+      "title": "Cloned asynchronous knowledge user Hat",
+      "completed": true
+    },
+    {
+      "id": "55dc4f2c-16d2-4f45-9df8-6ef037cb8c4b",
+      "title": "Universal discrete instruction set Chips",
+      "completed": true
+    },
+    {
+      "id": "210c845e-aa31-4eab-ba1d-257bbb71829c",
+      "title": "Right-sized attitude-oriented hub Soap",
+      "completed": false
+    },
+    {
+      "id": "45a70dfd-d6f7-4c80-a493-f6bbf7005d96",
+      "title": "Total background middleware Chips",
+      "completed": false
+    }
+  ],
   "benefits": [
     {
       "id": "4c4863a716314d40",
