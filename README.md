@@ -30,6 +30,8 @@
 
 - `t` / `tenantRequired` (*boolean*) - determines whether the `TenantID` header will be required for most resources (see [Tenants](#Tenants)). By default, this API is more permissive (header not required).
 
+- `jwtAuth` - (*boolean*) - determines whether JWT authentication is required or not, default: false
+
 # manual
 
  * see [`json-server`](https://github.com/typicode/json-server) docs for standard commands

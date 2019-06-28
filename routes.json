@@ -1,0 +1,7 @@
+{
+  "/finances/expenses*": "/expenses$1",
+
+  "/:resource/:id/count": "/:resource/:id",
+  "/:resource/count?:query": "/:resource?:query",
+  "/:resource/count": "/:resource"
+}

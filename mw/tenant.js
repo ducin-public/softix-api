@@ -1,33 +1,33 @@
+const pass = require('./pass')
+const { logMessage } = require('../lib/util')
+const config = require('../config.json')
+
 module.exports = (tenantRequired) => {
   if (!tenantRequired) {
-    return (req, res, next) => {
-      next()
-    }
+    logMessage(() => 'TenantID not required')
+    return pass
   }
 
-  setTimeout(() => {
-    console.log('TenantID header required for most resources')
-  }, 0)
+  logMessage(() => 'TenantID header required for most resources')
 
   const allowedTenantIDs = [
     'E2B31329-8818-428A-90DC-8F065318C052'
   ];
 
-  // lowercased: https://stackoverflow.com/a/43666082
-  const TenantIDHeader = 'tenantid'
-
-  const openedResources = ['/db', '/license']
   const resourceIsOpened = url =>
-    openedResources.some(resUrl => url.startsWith(resUrl))
+    config.OPEN_RESOURCES.some(resUrl => url.startsWith(resUrl))
+  
+  const getTenantHeader = req => req.headers[config.TENANT_ID_HEADER]
 
   return (req, res, next) => {
     if (resourceIsOpened(req.url)) {
       next()
     } else {
-      if (!req.headers[TenantIDHeader]) {
-        res.status(400)
-        res.send('`TenantID` header is required')
-      } else if (!allowedTenantIDs.includes(req.headers[TenantIDHeader])) {
+      // lowercased: https://stackoverflow.com/a/43666082
+      if (!getTenantHeader(req)) {
+        res.resstatus(400)
+        throw new Error('`TenantID` header is required')
+      } else if (!allowedTenantIDs.includes(getTenantHeader())) {
         res.status(404)
       } else {
         next()

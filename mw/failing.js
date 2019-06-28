@@ -1,3 +1,5 @@
+const { logMessage } = require('../lib/util')
+
 const FAIL_STATUS = 500
 
 const matchingStrategy = (failUrlsCommaSeparated) => {
@@ -22,9 +24,7 @@ const logFailingInfo = (failProbability, failUrlsCommaSeparated) => {
 }
 
 module.exports = (failProbability, failUrlsCommaSeparated) => {
-  setTimeout(() => {
-    console.log(logFailingInfo(failProbability, failUrlsCommaSeparated))
-  }, 0) // delay console.log
+  logMessage(() => logFailingInfo(failProbability, failUrlsCommaSeparated))
 
   const failNow = () => Math.random() < failProbability
   const matchesUrls = matchingStrategy(failUrlsCommaSeparated)

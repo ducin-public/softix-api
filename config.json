@@ -1,0 +1,10 @@
+{
+  "NAME": "ItCorpo",
+  "SECRET": "robinHoodIsComming4U.8",
+  "OPEN_RESOURCES": [
+    "/db",
+    "/auth",
+    "/license"
+  ],
+  "TENANT_ID_HEADER": "TenantIDHeader"
+}

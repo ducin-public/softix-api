@@ -1,46 +1,22 @@
 const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
 const express = require('express')
+const server = jsonServer.create()
+const middlewares = jsonServer.defaults()
+const router = jsonServer.router('db.json')
+const db = router.db
 
-const licenseResource = require('./resources/license')
+const { argv } = require('./lib/cli')
+const { logMessage } = require('./lib/util')
+
+const authMiddleware = require('./mw/auth')
 const tenantMiddleware = require('./mw/tenant')
 const pagingMiddleware = require('./mw/paging')
 const delayingMiddleware = require('./mw/delaying')
 const failingMiddleware = require('./mw/failing')
+const errorMiddleware = require('./mw/error')
 
-const argv = require('yargs')
-  .option('port', {
-    alias: 'p',
-    default: 3000,
-    describe: 'Service port',
-    type: 'number'
-  })
-  .option('delay', {
-    alias: 'd',
-    default: 1000,
-    describe: 'Minimum delay (+ random)',
-    type: 'number'
-  })
-  .option('fail', {
-    alias: 'f',
-    default: 0,
-    describe: 'Probability of requests to randomly fail (0..1)',
-    type: 'number'
-  })
-  .option('failUrls', {
-    default: null,
-    describe: 'Comma-separated list of pattern-matched urls to randomly fail',
-    type: 'string'
-  })
-  .option('tenantRequired', {
-    alias: 't',
-    default: false,
-    describe: 'TenantID header is required',
-    type: 'boolean'
-  })
-  .argv;
+const licenseResource = require('./resources/license')
+const authResource = require('./resources/auth')
 
 const baseUrl = url => url.split('?')[0]
 const isCountRequest = (req) =>
@@ -59,29 +35,22 @@ router.render = (req, res) => {
   }
 }
 
-server.use(jsonServer.rewriter({
-  "/finances/expenses*": "/expenses$1",
-
-  '/:resource/:id/count': '/:resource/:id',
-  '/:resource/count?:query': '/:resource?:query',
-  '/:resource/count': '/:resource',
-}))
-
+server.use(jsonServer.rewriter(require('./routes.json')))
 server.use('/images', express.static('images'))
 server.use(middlewares)
+
+server.use(authMiddleware(argv.jwtAuth))
 server.use(delayingMiddleware(argv.delay))
-server.get('/license', licenseResource())
 server.use(tenantMiddleware(argv.tenantRequired))
 server.use(pagingMiddleware(50))
 server.use(failingMiddleware(argv.fail, argv.failUrls))
-server.use(router)
 
-server.use(function (err, req, res, next) {
-  // console.error(err); // full error message
-  console.error(`error "${err.message}" occured for ${req.method} ${req.originalUrl}`); // request URL only
-  res.sendFile(__dirname + '/images/error/error.html');
-})
+server.get('/license', licenseResource())
+server.post('/auth', authResource())
+
+server.use(router)
+server.use(errorMiddleware())
 
 server.listen(argv.port, () => {
-  console.log('JSON Server is running on http://localhost:' + argv.p)
+  logMessage(() => `JSON Server is running on http://localhost: ${argv.p}`)
 })
