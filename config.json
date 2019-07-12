@@ -3,6 +3,7 @@
   "SECRET": "robinHoodIsComming4U.8",
   "OPEN_RESOURCES": [
     "/db",
+    "/log",
     "/auth",
     "/license"
   ],
