@@ -32,6 +32,12 @@
 
 - `jwtAuth` - (*boolean*) - determines whether JWT authentication is required or not, default: false
 
+# custom queries supported
+
+- `http://localhost:3000/employees?name_like=Fri` (searching by `firstName` and `lastName` only, instead of `?q=___` for full-text search on all properties)
+
+See `mw/employee_name.js` file.
+
 # manual
 
  * see [`json-server`](https://github.com/typicode/json-server) docs for standard commands

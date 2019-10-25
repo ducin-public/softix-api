@@ -1,16 +1,182 @@
 {
   "license": {},
-  "log": [{}],
-  "history": [{
-    "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
-    "type": "type",
-    "value": "value"
-  }],
-  "analytics": [{
-    "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
-    "request": "api.com/resource",
-    "time": 1569
-  }],
+  "log": [
+    {},
+    {
+      "logs": [
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "country": "FR",
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.9288798541749275,
+      "time": "2019-10-23T22:03:28.171Z"
+    },
+    {
+      "logs": [
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "country": "FR",
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.29502418222451565,
+      "time": "2019-10-23T22:06:09.843Z"
+    },
+    {
+      "logs": [
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "country": "IT",
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.21841333778197947,
+      "time": "2019-10-23T22:09:42.915Z"
+    },
+    {
+      "logs": [
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "country": "FR",
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.8594782757308705,
+      "time": "2019-10-23T22:12:31.031Z"
+    },
+    {
+      "logs": [
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "type": "@ngrx/effects/init"
+        },
+        {
+          "country": "DE",
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.8499872367371413,
+      "time": "2019-10-23T22:23:28.273Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.7325614494270802,
+      "time": "2019-10-23T22:24:15.781Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.83261541221507,
+      "time": "2019-10-23T22:25:05.054Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.5143691182392072,
+      "time": "2019-10-23T22:25:12.316Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.13743258102017397,
+      "time": "2019-10-23T22:25:45.773Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.8220627141237722,
+      "time": "2019-10-23T22:25:54.337Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.5586559536263866,
+      "time": "2019-10-23T22:26:13.858Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.29089803142572324,
+      "time": "2019-10-23T22:26:44.570Z"
+    },
+    {
+      "logs": [
+        {
+          "country": null,
+          "type": "COUNTRY_CHANGED"
+        }
+      ],
+      "id": 0.4005267580912226,
+      "time": "2019-10-23T22:27:57.123Z"
+    }
+  ],
+  "history": [
+    {
+      "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
+      "type": "type",
+      "value": "value"
+    }
+  ],
+  "analytics": [
+    {
+      "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
+      "request": "api.com/resource",
+      "time": 1569
+    }
+  ],
   "todos": [
     {
       "id": "a41d05d1-9c42-4772-948d-5c9472ad5a73",
@@ -6060,14 +6226,12 @@
       "skills": [
         "DDD",
         "MVC",
-        "Scalability",
-        "Java",
-        "JSP",
-        "Hibernate",
         "data structures",
         "algorithms",
         "scrum",
-        "testing"
+        "testing",
+        "mordo",
+        "krowa"
       ],
       "bio": "Aliquid et consequatur est explicabo et suscipit.\nNumquam dicta nihil rem.\nDoloribus inventore molestiae voluptates dolorum repellat architecto exercitationem unde tempora.\nAlias cum nulla ea maiores commodi odit praesentium eum omnis.\nUt consequatur ut.\n \rId et consequatur minus a.\nUllam repellat laudantium voluptatem est veritatis et qui deleniti.\nItaque eum minus voluptas ut.\nTempore praesentium voluptas et.\nVoluptas voluptatem ducimus voluptates ut.\nMagnam laborum maxime expedita veniam atque quo ducimus animi.\n \rCupiditate aspernatur odio officia nulla rerum.\nRem quod doloremque nisi in suscipit vitae eligendi.\nVel deserunt hic ratione itaque ab ipsum qui cupiditate voluptas.\nSunt pariatur quia ut.",
       "imgURL": "nurse-white-male.png"
@@ -65037,7 +65201,7 @@
   "expenses": [
     {
       "id": "f1c436a7-d9f5-4214-9be1-79766750b53b",
-      "amount": 10927.00,
+      "amount": 10927,
       "title": "salary",
       "payerAccount": "DE89 3704 0044 0532 0130 00",
       "beneficiaryAccount": "PL61 1090 1014 0000 0712 1981 2874",
