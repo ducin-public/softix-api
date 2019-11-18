@@ -5,7 +5,8 @@
     "/db",
     "/log",
     "/auth",
-    "/license"
+    "/license",
+    "/images/error"
   ],
   "TENANT_ID_HEADER": "TenantIDHeader"
 }

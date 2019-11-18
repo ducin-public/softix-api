@@ -1,12 +1,16 @@
 const jsonServer = require('json-server')
-const express = require('express')
-const server = jsonServer.create()
-const middlewares = jsonServer.defaults()
+
+const app = jsonServer.create()
+const jsonServerMiddlewares = jsonServer.defaults()
+
 const router = jsonServer.router('db.json')
+const countMiddleware = require('./mw/count')
+router.render = countMiddleware()
+
 const db = router.db
 
 const { argv } = require('./lib/cli')
-const { logMessage } = require('./lib/util')
+const { logInfo } = require('./lib/util')
 
 const authMiddleware = require('./mw/auth')
 const tenantMiddleware = require('./mw/tenant')
@@ -16,43 +20,21 @@ const failingMiddleware = require('./mw/failing')
 const errorMiddleware = require('./mw/error')
 const employeeNameMiddleware = require('./mw/employee_name')
 
-const licenseResource = require('./resources/license')
-const authResource = require('./resources/auth')
+app.use(jsonServer.rewriter(require('./routes.json')))
+app.use(jsonServerMiddlewares)
 
-const baseUrl = url => url.split('?')[0]
-const isCountRequest = (req) =>
-  baseUrl(req.originalUrl).includes('count') || baseUrl(req.originalUrl).includes('count/')
+app.use(authMiddleware(argv.jwtAuth))
+app.use(delayingMiddleware(argv.delay))
+app.use(tenantMiddleware(argv.tenantRequired))
+app.use(pagingMiddleware(50))
+app.use(failingMiddleware(argv.fail, argv.failUrls))
+app.use(employeeNameMiddleware(db))
 
-router.render = (req, res) => {
-  if (isCountRequest(req)){
-    if (res.locals.data instanceof Array) {
-      res.jsonp(res.getHeader('x-total-count').value())
-    } else {
-      res.status(400)
-      res.end('Count unavailable on a non-array', 'utf-8')
-    }
-  } else {
-    res.jsonp(res.locals.data)
-  }
-}
+const additionalResources = require('./resources')
+app.use(additionalResources)
+app.use(router)
+app.use(errorMiddleware())
 
-server.use(jsonServer.rewriter(require('./routes.json')))
-server.use('/images', express.static('images'))
-server.use(middlewares)
-
-server.use(authMiddleware(argv.jwtAuth))
-server.use(delayingMiddleware(argv.delay))
-server.use(tenantMiddleware(argv.tenantRequired))
-server.use(pagingMiddleware(50))
-server.use(failingMiddleware(argv.fail, argv.failUrls))
-server.use(employeeNameMiddleware(db))
-
-server.get('/license', licenseResource())
-server.post('/auth', authResource())
-
-server.use(router)
-server.use(errorMiddleware())
-
-server.listen(argv.port, () => {
-  logMessage(() => `JSON Server is running on http://localhost: ${argv.p}`)
+app.listen(argv.port, () => {
+  logInfo(() => `JSON Server is running on http://localhost:${argv.p}`)
 })

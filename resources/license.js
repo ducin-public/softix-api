@@ -1,12 +1,18 @@
 const fs = require('fs')
-const { logMessage } = require('../lib/util')
+const { logConfig, logInfo, logError } = require('../lib/util')
 
 module.exports = () => {
   let licenseContent = null
+  logConfig(() => `License will be available under /license`)
 
   fs.readFile(`${__dirname}/license.txt`, (err, data) => {
-    licenseContent = data
-    logMessage(() => 'License file loaded and available under /license')
+    if (err) {
+      logError(() => 'License loading failed')
+      logError(() => err)
+    } else {
+      licenseContent = data
+      logInfo(() => 'License file loaded and available')
+    }
   })
 
   return (req, res, next) => {

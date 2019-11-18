@@ -1,6 +1,6 @@
 const jwt = require('express-jwt')
 const pass = require('./pass')
-const { logMessage } = require('../lib/util')
+const { logConfig } = require('../lib/util')
 const config = require('../config.json')
 
 const maskedSecret = secret =>
@@ -14,11 +14,11 @@ module.exports = (requiredAuth) => {
   }
 
   if (!requiredAuth){
-    logMessage(() => 'No Authentication required')
+    logConfig(() => `No Authentication required`)
     return pass
   }
 
-  logMessage(() => `JWT Authentication required with secret: ${maskedSecret(config.SECRET)}`)
+  logConfig(() => `JWT Authentication required with secret: ${maskedSecret(config.SECRET)}`)
 
   return jwt({
     secret: config.SECRET,
