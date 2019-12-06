@@ -18,6 +18,15 @@
     npm start -- -p 3010 -t true -d 3000
     # localhost:3010, tenant: required, delay: 3000 miliseconds
 
+## Example Resources
+
+- `/employees` -> `Employee[]`
+- `/employees/count` -> `number`
+- `/employees?_page=1` -> `Employee[]`
+- `/employees?_limit=10&_page=2` -> `Employee[]`
+- `/employees?name_like=Fri` -> `Employee[]`
+- `/employees?firstName_like=Fr` -> `Employee[]`
+
 ## CLI options
 
 - `p` / `port` (*number*) - well... the port
